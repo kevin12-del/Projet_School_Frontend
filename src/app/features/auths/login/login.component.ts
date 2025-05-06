@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   user = new User();
   err= 0;
-  message : string = "login ou mot de passe erronés..";
+  message : string = "wrong login or password...";
 
 
   constructor( private router: Router, private authService: AuthService, private toastr: ToastrService) { }
@@ -47,11 +47,11 @@ export class LoginComponent implements OnInit {
         error: (err: any) => {
           this.err = 1;
           if (err.error.errorCause=='disabled')
-            this.message="Utilisateur désactivé, Veuillez contacter votre Administrateur";
+            this.message="User disabled, please contact your Administrator";
         }
       });
     } else {
-      this.toastr.error('Veuillez remplir tous les champs', 'Error');
+      this.toastr.error('Please fill in all fields', 'Error');
     }
   }
 

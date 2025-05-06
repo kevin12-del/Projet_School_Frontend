@@ -56,12 +56,12 @@ export class VerifEmailComponent implements OnInit{
       },
       error: (err: any) => {
         if (err.error.errorCode=="INVALID_TOKEN")
-          this.err="Code invalide!";
+          this.err="Invalid code!";
         if (err.error.errorCode=="EXPIRED_TOKEN")
-          this.err="Code a expiré!";
+          this.err="Code expired!";
         this.authService.deleteAccount(this.user).subscribe(
           (res)=>{
-            this.toastr.error('Code invalide!', 'Error');
+            this.toastr.error('Invalid code!', 'Error');
           },
           (err)=>{
             console.log(err);

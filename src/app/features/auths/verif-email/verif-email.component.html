@@ -1,22 +1,3 @@
-<!--<div class="container mt-5">
-  <div class="row justify-content-md-center">
-    <div class="col-md-4">
-      @if(err) {
-        <div class="alert alert-danger" >
-          <strong>{{err}}</strong>
-        </div>
-      }
-      <form >
-        <div class="txt_field">
-          <label>Veuillez entrer le code envoyé par mail :</label>
-          <input type="text" name="code" [(ngModel)]="code" class="formcontrol" placeholder=" code de confirmation" >
-        </div>
-        <button type="button" class="btn btn-lg btn-primary mt-3"
-                (click)="onValidateEmail()">Valider</button>
-      </form>
-    </div>
-  </div>
-</div>-->
 <div class="container-fluid vh-100">
   <div class="row h-100">
     <!-- Section gauche (image en background) -->
@@ -75,12 +56,6 @@
               <button type="submit" class="btn btn-primary w-100 py-2 mb-3">
                 Validate Account
               </button>
-
-              <!--<p class="text-center mb-0">Didn't receive a code?
-                <a href="javascript:void(0)" class="text-decoration-none text-primary" (click)="resendToken()">
-                   Resend
-                </a>
-              </p>-->
             </form>
 
           }

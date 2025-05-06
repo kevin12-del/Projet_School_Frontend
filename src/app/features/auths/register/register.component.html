@@ -1,95 +1,3 @@
-<!--<div class="container mt-5">
-  <div class="row justify-content-md-center">
-    <div class="col-md-4">
-      <form [formGroup]="myForm">
-
-        @if (err) {
-          <div class="alert alert-danger">
-            <strong>{{err}}</strong>
-          </div>
-        }
-        <div class="form-group">
-          <label>Username :</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-user"></i></span>
-          <input type="text" name="username" class="form-control" formControlName="username" [(ngModel)]="user.username" placeholder="Entrez votre username">
-        </div></div>
-        @if (myForm.controls['username'].hasError('required')&& myForm.controls['username'].touched) {
-          <span class="text-danger">Username est obligatoire</span>
-        }
-        <div class="form-group">
-          <label>email :</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-          <input type="text" name="email" class="form-control" formControlName="email" [(ngModel)]="user.email" placeholder="Entrez votre email">
-          </div>
-        </div>
-        @if (myForm.controls['email'].hasError('required')&& myForm.controls['email'].touched) {
-          <span class="text-danger">email est obligatoire</span>
-        }
-        @if (myForm.controls['email'].hasError('email')&& myForm.controls['email'].touched)
-        {
-          <span class="text-danger">email non valide</span>
-        }
-        <div class="form-group mb-3">
-          <label for="role">Status:</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
-          <select id="role" formControlName="role" class="form-select" [(ngModel)]="user.role" placeholder="Entrez votre rôle">
-            <option value="">-- Choisissez un rôle --</option>
-            <option value="ADMIN">Admin</option>
-            <option value="ENSEIGNANT">Enseignant</option>
-            <option value="ELEVE">Élève</option>
-            <option value="PARENT">Parent</option>
-          </select>
-          </div>
-        </div>
-        @if (myForm.controls['role'].hasError('required')&& myForm.controls['role'].touched) {
-          <span class="text-danger">Le status est obligatoire</span>
-        }
-        <div class="form-group">
-          <label>Mot de passe :</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-key"></i></span>
-            <input type="password" name="password" formControlName="password" [(ngModel)]="user.password" class="form-control" placeholder="Entrez votre mot de passe">
-          </div>
-        </div>
-        @if (myForm.controls['password'].hasError('required')&& myForm.controls['password'].touched) {
-          <span class="text-danger">mot de passe est obligatoire</span>
-        }
-        @if (myForm.controls['password'].hasError('minlength')&& myForm.controls['password'].touched) {
-          <span class="text-danger">mot de passe doit contenir au moins 6 caractères</span>
-        }
-        <div class="form-group">
-          <label>Confirmer Mot de passe :</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fas fa-key"></i></span>
-           <input type="password" name="confirmPassword" formControlName="confirmPassword" class="form-control" placeholder="Confirmer votre mot de passe">
-          </div>
-        </div>
-        @if (myForm.controls['confirmPassword'].hasError('required')&& myForm.controls['confirmPassword'].touched) {
-          <span class="text-danger">confirmer mot de passe est obligatoire</span>
-        }
-        <div>
-          @if (myForm.get('confirmPassword')?.touched && myForm.get('confirmPassword')?.value != myForm.get('password')?.value) {
-            <span class="text-danger">Le mot de passe confrmé ne correspond pas au mot de passe tapé</span>
-          }
-        </div>
-        @if(loading){
-          <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-        }
-        <button type="button" [disabled]="myForm.invalid" class="btn btn-lg btn-primary mt-3"
-                (click)="onRegister()" [disabled]="loading">S'insrire</button>
-        <p>vous avez un compte? <a routerLink="/login">se connecter </a></p>
-        <p>verifier email <a routerLink="/verif-email">Verifier </a></p>
-      </form>
-    </div>
-  </div>
-</div>-->
 <div class="container-fluid vh-100">
   <div class="row h-100">
     <!-- Section gauche (visible uniquement sur les médias md et plus grands) -->
@@ -105,9 +13,9 @@
 
       <!-- Contenu principal -->
       <div class="text-white mb-4">
-        <h1 class="fs-2 fw-bold mb-3"> School Management</h1>
+        <h1 class="fs-2 fw-bold mb-3">Simplify School Management</h1>
         <p class="fs-5 text-light mb-4">
-          Une plateforme complète pour les enseignants, les administrateurs et les elèves afin de gérer efficacement les activités de l'école.
+          A comprehensive platform for teachers, administrators, and staff to manage school operations efficiently.
         </p>
 
         <div class="mb-3">
@@ -117,7 +25,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <p class="text-light">Admistré le suivi des éleves</p>
+            <p class="text-light">Streamline attendance tracking</p>
           </div>
 
           <div class="d-flex align-items-start mb-2">
@@ -126,7 +34,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <p class="text-light">Gérer les performances et les dossiers des élèves</p>
+            <p class="text-light">Manage student performance and records</p>
           </div>
 
           <div class="d-flex align-items-start mb-2">
@@ -135,7 +43,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <p class="text-light">Simplifier la communication avec les parents</p>
+            <p class="text-light">Simplify communication with parents</p>
           </div>
         </div>
       </div>
@@ -145,6 +53,7 @@
         © 2025 SchoolKenGroup. All rights reserved.
       </div>
     </div>
+
 
     <!-- Section droite - Formulaire d'inscription -->
     <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center p-4 bg-light">
@@ -161,7 +70,7 @@
 
       <div class="card shadow-sm w-100" style="max-width: 450px;">
         <div class="card-body p-4">
-          <h2 class="card-title text-center mb-4 fw-bold">Initialiser Mon Compte</h2>
+          <h2 class="card-title text-center mb-4 fw-bold">Create an account</h2>
           @if (err) {
             <div class="alert alert-danger">
               <strong>{{err}}</strong>
@@ -171,7 +80,7 @@
           <form (ngSubmit)="onSubmit()">
             <div class="row g-3 mb-3">
               <div class="col-md-6">
-                <label for="firstName" class="form-label">Prénom</label>
+                <label for="firstName" class="form-label">First name</label>
                 <input
                   type="text"
                   class="form-control"
@@ -182,7 +91,7 @@
                 >
               </div>
               <div class="col-md-6">
-                <label for="lastName" class="form-label">Nom</label>
+                <label for="lastName" class="form-label">Last name</label>
                 <input
                   type="text"
                   class="form-control"
@@ -208,11 +117,11 @@
             </div>
             <div class="mb-3">
               <label for="role" class="form-label">Status:</label>
-              <select id="role"  class="form-select" [(ngModel)]="user.role" placeholder="Entrez votre rôle" name="role" required>
-                <option value="">-- Choisissez un rôle --</option>
+              <select id="role"  class="form-select" [(ngModel)]="user.role"  name="role" required>
+                <option value="">-- Select a role --</option>
                 <option value="ADMIN">Admin</option>
-                <option value="ENSEIGNANT">Enseignant</option>
-                <option value="ELEVE">Élève</option>
+                <option value="ENSEIGNANT">Teacher</option>
+                <option value="ELEVE">Student</option>
                 <option value="PARENT">Parent</option>
               </select>
             </div>
@@ -260,9 +169,9 @@
             </button>
 
             <p class="text-center mb-0">
-              J'ai déja un compte
+              I already have an account
               <a href="javascript:void(0)" class="text-decoration-none text-primary" (click)="navigateToLogin()">
-                Se connecter
+                  Sign in
               </a>
             </p>
           </form>

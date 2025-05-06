@@ -39,17 +39,17 @@ export class RegisterComponent {
   onSubmit() {
     // Valider le formulaire
     if (!this.user.prenom || !this.user.nom || !this.user.email || !this.user.password || !this.confirmPassword) {
-      this.toastr.error('Veuillez remplir tous les champs', 'Error');
+      this.toastr.error('Please fill in all fields', 'Error');
       return;
     }
 
     if (this.user.password !== this.confirmPassword) {
-      this.toastr.error('Les mots de passe ne correspondent pas', 'Error');
+      this.toastr.error('Passwords don\'t match', 'Error');
       return;
     }
 
     if (this.user.password.length < 8) {
-      this.toastr.info('Le mot de passe doit contenir au moins 8 caractères', 'error');
+      this.toastr.info('Password must contain at least 8 characters', 'error');
       return;
     }
 
@@ -69,7 +69,7 @@ export class RegisterComponent {
         this. authService.setRegistredUser(this.user);
         //alert("veillez confirmer votre email");
         this.loading= false;
-        this.toastr.success('veillez confirmer votre email', 'Confirmation');
+        this.toastr.success('please confirm your email', 'confirm');
         this.router.navigate(["/verif-email"]);
 
 // this.router.navigate(["/verifEmail",this.user.email]);
