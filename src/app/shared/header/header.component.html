@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+  <div class="container-fluid">
+    <div class="navbar-brand d-flex align-items-center">
+      <span class="me-2 badge bg-light text-primary">{{ userData.userRole }}</span>
+      <span>{{ userData.userName }}</span>
+    </div>
+    <div class="ms-auto">
+      <!-- User Dropdown -->
+      <div class="dropdown">
+        <button
+          class="btn btn-primary dropdown-toggle"
+          (click)="toggleDropdown()"
+          [attr.aria-expanded]="isDropdownOpen"
+        >
+          <i class="bi bi-person-circle me-1"></i>
+          Options
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end" [ngClass]="{'show': isDropdownOpen}" style="background-color: white; z-index: 1000">
+          <li>
+            <a routerLink="/profile" class="dropdown-item">
+              <i class="bi bi-person me-2"></i>Profile
+            </a>
+          </li>
+          <li>
+            <a routerLink="/settings" class="dropdown-item">
+              <i class="bi bi-gear me-2"></i>Settings
+            </a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <a routerLink="/login" class="dropdown-item text-danger" (click)="logout()">
+              <i class="bi bi-box-arrow-right me-2"></i>Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

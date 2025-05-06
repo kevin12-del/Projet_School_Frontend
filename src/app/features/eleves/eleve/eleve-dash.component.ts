@@ -4,12 +4,13 @@ import {Router, RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {AuthService} from "../../../services/auth.service";
+import {HeaderComponent} from "../../../shared/header/header.component";
 
 
 @Component({
   selector: 'app-eleve-dash',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, HeaderComponent],
   templateUrl: './eleve-dash.component.html',
   styleUrl: './eleve-dash.component.css'
 })
@@ -19,15 +20,9 @@ export class EleveDashComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
 
-  logout() {
-    this.authService.logout();
-  }
 
-  // Données simulées de l'utilisateur
-  userData = {
-    userName: 'Jean Dupont',
-    userRole: 'Student'
-  };
+
+
   isSidebarCollapsed = false;
 
 
@@ -41,7 +36,7 @@ export class EleveDashComponent {
     { id: 'grades', name: 'grades', icon: 'bi-star', path: '/eleve/grades' }
   ];
 
-  isDropdownOpen = false;
+
 
   // Fonction pour basculer entre la sidebar étendue et réduite
   toggleSidebar() {
@@ -49,7 +44,5 @@ export class EleveDashComponent {
   }
 
   // Fonction pour ouvrir/fermer le menu déroulant de l'utilisateur
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
+
 }
