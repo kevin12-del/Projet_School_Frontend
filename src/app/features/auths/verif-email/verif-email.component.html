@@ -1,0 +1,92 @@
+<!--<div class="container mt-5">
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      @if(err) {
+        <div class="alert alert-danger" >
+          <strong>{{err}}</strong>
+        </div>
+      }
+      <form >
+        <div class="txt_field">
+          <label>Veuillez entrer le code envoyé par mail :</label>
+          <input type="text" name="code" [(ngModel)]="code" class="formcontrol" placeholder=" code de confirmation" >
+        </div>
+        <button type="button" class="btn btn-lg btn-primary mt-3"
+                (click)="onValidateEmail()">Valider</button>
+      </form>
+    </div>
+  </div>
+</div>-->
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <!-- Section gauche (image en background) -->
+    <div class="col-md-6 d-none d-md-block p-0"
+         style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158');
+                background-size: cover;
+                background-position: center;">
+    </div>
+
+    <!-- Section droite - Formulaire de validation du compte -->
+    <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center p-4 bg-light">
+      <!-- Logo mobile uniquement -->
+      <div class="mb-4 d-md-none w-100">
+        <div class="d-flex align-items-center text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2" style="height: 2rem; width: 2rem;">
+            <path d="m2 7 10-5 10 5v16H2V7Z" />
+            <path d="M6 22V11m4 0v11m4 0V11m4 0v11" />
+          </svg>
+          <span class="fs-4 fw-bold">SchoolKenGroup</span>
+        </div>
+      </div>
+
+      <div class="card shadow-sm w-100" style="max-width: 450px;">
+        <div class="card-body p-4">
+          <h2 class="card-title text-center mb-4 fw-bold">Validate Your Account</h2>
+          <div class="mb-4 text-center">
+            <p class="mb-1">Welcome,</p>
+            <h5 class="fw-bold text-primary">{{ this.user.username }}</h5>
+            <p class="text-muted">Please enter the verification code sent to your email</p>
+          </div>
+          @if(err) {
+            <div class="alert alert-danger" >
+              <strong>{{err}}</strong>
+            </div>
+            <p class="text-center text-danger fw-bold">Error in the process!!!!</p>
+            <p class="text-center mb-0">
+              <a href="javascript:void(0)" class="text-decoration-none text-primary"
+                 (click)="navigateToLogin()">Back to login</a>
+            </p>
+          } @else {
+            <form (ngSubmit)="onSubmit()">
+              <div class="mb-4">
+                <label for="token" class="form-label">Verification Code</label>
+                <input
+                  type="text"
+                  class="form-control form-control-lg text-center"
+                  id="token"
+                  placeholder="Enter code here"
+                  [(ngModel)]="token"
+                  name="token"
+                  required
+                >
+                <div class="form-text text-center">The code was sent to your email address</div>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 py-2 mb-3">
+                Validate Account
+              </button>
+
+              <!--<p class="text-center mb-0">Didn't receive a code?
+                <a href="javascript:void(0)" class="text-decoration-none text-primary" (click)="resendToken()">
+                   Resend
+                </a>
+              </p>-->
+            </form>
+
+          }
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

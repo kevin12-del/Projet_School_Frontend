@@ -1,0 +1,124 @@
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <!-- Section gauche (visible uniquement sur les médias md et plus grands) -->
+    <div class="col-md-6 d-none d-md-flex flex-column justify-content-between bg-primary p-4">
+      <!-- Logo -->
+      <div class="logo text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2" style="height: 2rem; width: 2rem; display: inline-block;">
+          <path d="m2 7 10-5 10 5v16H2V7Z" />
+          <path d="M6 22V11m4 0v11m4 0V11m4 0v11" />
+        </svg>
+        <span class="fs-4 fw-bold">SchoolKenGroup</span>
+      </div>
+
+      <!-- Contenu principal -->
+      <div class="text-white mb-4">
+        <h1 class="fs-2 fw-bold mb-3"> School Management</h1>
+        <p class="fs-5 text-light mb-4">
+          Une plateforme complète pour les enseignants, les administrateurs et les elèves afin de gérer efficacement les activités de l'école.
+        </p>
+
+        <div class="mb-3">
+          <div class="d-flex align-items-start mb-2">
+            <div class="bg-light bg-opacity-25 p-1 rounded-circle me-2 mt-1">
+              <svg style="height: 1rem; width: 1rem;" class="text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-light">Admistré le suivi des éleves</p>
+          </div>
+
+          <div class="d-flex align-items-start mb-2">
+            <div class="bg-light bg-opacity-25 p-1 rounded-circle me-2 mt-1">
+              <svg style="height: 1rem; width: 1rem;" class="text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-light">Gérer les performances et les dossiers des élèves</p>
+          </div>
+
+          <div class="d-flex align-items-start mb-2">
+            <div class="bg-light bg-opacity-25 p-1 rounded-circle me-2 mt-1">
+              <svg style="height: 1rem; width: 1rem;" class="text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p class="text-light">Simplifier la communication avec les parents</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pied de page -->
+      <div class="text-light small">
+        © 2025 SchoolKenGroup. All rights reserved.
+      </div>
+    </div>
+
+    <!-- Section droite - Formulaire de connexion -->
+    <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-center p-4 bg-light">
+      <!-- Logo mobile uniquement -->
+      <div class="mb-4 d-md-none w-100">
+        <div class="d-flex align-items-center text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2" style="height: 2rem; width: 2rem;">
+            <path d="m2 7 10-5 10 5v16H2V7Z" />
+            <path d="M6 22V11m4 0v11m4 0V11m4 0v11" />
+          </svg>
+          <span class="fs-4 fw-bold">SchoolKenGroup</span>
+        </div>
+      </div>
+      @if(err==1) {
+        <div class="alert alert-danger" >
+          <strong>{{message}}</strong>
+        </div>
+      }
+      <div class="card shadow-sm w-100" style="max-width: 450px;">
+        <div class="card-body p-4">
+          <h2 class="card-title text-center mb-4 fw-bold">Se Connecter</h2>
+
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                placeholder="name@example.com"
+                [(ngModel)]="user.email"
+                name="email"
+                required
+              >
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label for="password" class="form-label mb-0">Password</label>
+                <a href="javascript:void(0)" class="text-decoration-none small text-primary" (click)="navigateToForgetPassword()">Mot de passe oublie?</a>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="••••••••"
+                [(ngModel)]="user.password"
+                name="password"
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 mb-3">
+              Se connecter
+            </button>
+
+            <p class="text-center mb-0">
+              Je n'ai pas de compte?
+              <a href="javascript:void(0)" class="text-decoration-none text-primary" (click)="navigateToRegister()">
+                Initaliser mon compte
+              </a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
