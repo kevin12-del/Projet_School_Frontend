@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {CommonModule} from "@angular/common";
@@ -15,7 +15,14 @@ import {FormsModule} from "@angular/forms";
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+
+  ngOnInit(): void {
+    // This method is required by the OnInit interface but can remain empty if no initialization logic is needed.
+    this.isDropdownOpen = false;
+    this.userData.userName = this.authService.getUser().username;
+    this.userData.userRole = this.authService.getUser().role;
+  }
 
   // Données simulées de l'utilisateur
   userData = {

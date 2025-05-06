@@ -42,7 +42,27 @@ export class LoginComponent implements OnInit {
         next: (data) => {
           let jwToken = data.headers.get('Authorization')!;
           this.authService.saveToken(jwToken);
-          this.router.navigate(['/eleve']);
+            this.authService.saverUser(this.user);
+
+          switch (this.authService.getRole()) {
+            case "STUDENT":
+              this.router.navigate(['/eleve']);
+              break;
+            case "ADMIN":
+              this.router.navigate(['/admin']);
+              break;
+            case "TEACHER":
+              this.router.navigate(['/teacher']);
+              break;
+            case "PARENT":
+              this.router.navigate(['/parent']);
+              break;
+            default:
+              this.toastr.error('Unknown status user', 'Error');
+              this.router.navigate(['/login']);
+              break;
+          }
+
         },
         error: (err: any) => {
           this.err = 1;

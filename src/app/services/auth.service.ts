@@ -12,10 +12,11 @@ export class AuthService {
 
   public loggedUser!:string;
   public isloggedIn: Boolean = false;
+  public loginUser : User = new User();
   token!:string;
   private helper = new JwtHelperService();
   public regitredUser : User = new User();
-  private roles: string[] | undefined;
+  private roles: string | undefined;
 
   constructor(private router: Router,
               private http : HttpClient) { }
@@ -56,7 +57,11 @@ export class AuthService {
   { if (this.token == undefined)
     return;
     const decodedToken = this.helper.decodeToken(this.token);
-    this.roles = decodedToken.roles;
+    console.log(decodedToken);
+    console.log(decodedToken.role);
+    this.roles = decodedToken.role;
+    this.roles = this.roles?.slice(5);
+    console.log(this.roles);
     this.loggedUser = decodedToken.sub;
   }
 
@@ -74,6 +79,17 @@ export class AuthService {
     this.roles = undefined!;
     localStorage.removeItem('jwt')
     this.router.navigate(['/login']);
+  }
+
+  saverUser(user : User){
+    user.role = this.getRole() || '';
+    localStorage.setItem('user',JSON.stringify(user));
+    this.loginUser = user
+    localStorage.setItem('roles', this.roles || '');
+  }
+  getUser(){
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
   }
 
   /*isAdmin():Boolean{
@@ -107,4 +123,7 @@ export class AuthService {
     return this.regitredUser;
   }
 
+  getRole() {
+    return this.roles;
+  }
 }

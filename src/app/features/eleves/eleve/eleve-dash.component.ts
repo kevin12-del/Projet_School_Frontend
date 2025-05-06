@@ -33,7 +33,7 @@ export class EleveDashComponent {
     { id: 'class', name: 'class', icon: 'bi-people', path: '/eleve/class' },
     { id: 'schedule', name: 'schedule', icon: 'bi-calendar3', path: '/eleve/schedule' },
     { id: 'courses', name: 'Courses', icon: 'bi-book', path: '/eleve/courses' },
-    { id: 'grades', name: 'grades', icon: 'bi-star', path: '/eleve/grades' }
+    { id: 'grades', name: 'grades', icon: 'bi-clipboard-data', path: '/eleve/grades' }
   ];
 
 
@@ -41,6 +41,7 @@ export class EleveDashComponent {
   // Fonction pour basculer entre la sidebar étendue et réduite
   toggleSidebar() {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
+    console.log(this.authService.getRole());
   }
 
   // Fonction pour ouvrir/fermer le menu déroulant de l'utilisateur

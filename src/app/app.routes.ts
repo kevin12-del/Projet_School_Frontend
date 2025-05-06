@@ -10,6 +10,9 @@ import {DashbordComponent} from "./features/eleves/dashbord/dashbord.component";
 import {ScheduleComponent} from "./features/eleves/schedule/schedule.component";
 import {CourseComponent} from "./features/eleves/course/course.component";
 import {ClassComponent} from "./features/eleves/class/class.component";
+import {ParentComponent} from "./features/parent/parent/parent.component";
+import {AdminComponent} from "./features/admin/admin/admin.component";
+import {TeacherComponent} from "./features/teacher/teacher/teacher.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,6 +28,9 @@ export const routes: Routes = [
       {path: "class", component: ClassComponent},
       {path: "", redirectTo: "dashbord", pathMatch: "full"}
     ]},
+  {path: "parent", component: ParentComponent, children: []},
+  {path: "admin", component: AdminComponent, children: []},
+  {path: "teacher", component: TeacherComponent, children: []},
 
   {path: "forget-password", component: ForgetPasswordComponent},
 
