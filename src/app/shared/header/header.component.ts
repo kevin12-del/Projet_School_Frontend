@@ -44,4 +44,6 @@ export class HeaderComponent implements OnInit{
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+
+
 }

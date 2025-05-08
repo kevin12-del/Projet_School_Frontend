@@ -8,18 +8,20 @@
     <!-- Sidebar -->
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" [ngClass]="{'col-1.5': !isSidebarCollapsed, 'col-0': isSidebarCollapsed}" style="transition: width 0.3s;">
       <div class="d-flex align-items-center mb-1">
-       <!-- <span class="fs-4 d-none d-md-inline">Menu</span>-->
         <button class="d-block d-md-none btn btn-primary" (click)="toggleSidebar()">
           <i class="bi bi-list "></i>
         </button>
-        <button class="d-none d-md-inline btn btn-primary" (click)="toggleSidebar()">
-          <!--<i class="bi"  [ngClass]="isSidebarCollapsed ? 'bi-list'"></i>-->
-          @if (!isSidebarCollapsed){
-            <span class="d-none d-md-inline">Menu</span>
+        <div class="d-md-inline d-none navbar-brand d-flex align-items-center" (click)="toggleSidebar()">
+          @if(isSidebarCollapsed) {
+            <button class=" btn btn-primary">
+              <i class="bi bi-list "></i>
+            </button>
           } @else {
-            <i class="bi bi-list"></i>
+            <span class="me-2 badge bg-light text-primary">{{ role }}</span>
           }
-        </button>
+
+        </div>
+
       </div>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">

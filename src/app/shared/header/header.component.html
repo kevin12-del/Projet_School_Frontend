@@ -1,9 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
+  <div class="logo text-white d-flex align-items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2" style="height: 2rem; width: 2rem; display: inline-block;">
+      <path d="m2 7 10-5 10 5v16H2V7Z" />
+      <path d="M6 22V11m4 0v11m4 0V11m4 0v11" />
+    </svg>
+    <span class="fs-4 fw-bold">SchoolKenGroup</span>
+  </div>
   <div class="container-fluid">
-    <div class="navbar-brand d-flex align-items-center">
-      <span class="me-2 badge bg-light text-primary">{{ userData.userRole }}</span>
-      <span>{{ userData.userName }}</span>
-    </div>
+
     <div class="ms-auto">
       <!-- User Dropdown -->
       <div class="dropdown">
@@ -13,7 +17,7 @@
           [attr.aria-expanded]="isDropdownOpen"
         >
           <i class="bi bi-person-circle me-1"></i>
-          Options
+          <span>{{ userData.userName }}</span>
         </button>
 
         <ul class="dropdown-menu dropdown-menu-end" [ngClass]="{'show': isDropdownOpen}" style="background-color: white; z-index: 1000">
@@ -38,3 +42,8 @@
     </div>
   </div>
 </nav>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+  <div class="navbar-brand d-flex align-items-center">
+    <span class="me-2 badge bg-light text-primary">{{ userData.userRole }}</span>
+  </div>
+</nav>-->
