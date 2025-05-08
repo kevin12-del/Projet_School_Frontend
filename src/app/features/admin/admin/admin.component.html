@@ -1,5 +1,47 @@
+<!-- dashboard.component.html -->
 <div class="d-flex flex-column vh-100">
   <!-- Navbar -->
   <app-header></app-header>
 
+  <!-- Main Content with Sidebar -->
+  <div class="d-flex flex-grow-1 overflow-hidden">
+    <!-- Sidebar -->
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-light h-100" [ngClass]="{'col-1.5': !isSidebarCollapsed, 'col-0': isSidebarCollapsed}" style="transition: width 0.3s;">
+      <div class="d-flex align-items-center mb-1">
+        <button class="d-block d-md-none btn btn-primary" (click)="toggleSidebar()">
+          <i class="bi bi-list "></i>
+        </button>
+        <div class="d-md-inline d-none navbar-brand d-flex align-items-center" (click)="toggleSidebar()">
+          @if(isSidebarCollapsed) {
+            <button class=" btn btn-primary">
+              <i class="bi bi-list "></i>
+            </button>
+          } @else {
+            <i class="bi bi-person-check "></i>
+            <span class="me-2 badge bg-light text-primary">{{ role }}</span>
+          }
+
+        </div>
+
+      </div>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li *ngFor="let item of sidebarItems" class="nav-item mb-2">
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            class="nav-link text-dark d-flex align-items-center">
+            <i class="bi {{ item.icon }} me-2"></i>
+            <span class="d-none d-md-inline" *ngIf="!isSidebarCollapsed">{{ item.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow-1 p-3 overflow-auto">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
