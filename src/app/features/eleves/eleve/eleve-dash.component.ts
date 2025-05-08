@@ -28,11 +28,11 @@ export class EleveDashComponent {
 
   // Liste des items du sidebar
   sidebarItems = [
-    { id: 'dashbord', name: 'Dashbord', icon: 'bi-speedometer2', path: '/eleve/dashbord' },
     { id: 'profile', name: 'Profil', icon: 'bi-person', path: '/eleve/profil' },
-    { id: 'class', name: 'class', icon: 'bi-people', path: '/eleve/class' },
     { id: 'schedule', name: 'schedule', icon: 'bi-calendar3', path: '/eleve/schedule' },
     { id: 'courses', name: 'Courses', icon: 'bi-book', path: '/eleve/courses' },
+    { id: 'presence', name: 'presence', icon: 'bi-clipboard', path: '/eleve/class-presence' },
+    { id: 'homework', name: 'Homework', icon: 'bi-pencil-square', path: '/eleve/homework' },
     { id: 'grades', name: 'grades', icon: 'bi-clipboard-data', path: '/eleve/grades' }
   ];
 

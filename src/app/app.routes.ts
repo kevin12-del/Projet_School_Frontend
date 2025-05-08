@@ -6,10 +6,10 @@ import {EleveDashComponent} from "./features/eleves/eleve/eleve-dash.component";
 import {EleveProfilComponent} from "./features/eleves/profile/eleve-profil.component";
 import {ForgetPasswordComponent} from "./features/auths/forget-password/forget-password.component";
 import {EleveNoteComponent} from "./features/eleves/grade/eleve-note.component";
-import {DashbordComponent} from "./features/eleves/dashbord/dashbord.component";
+import {HomeworkComponent} from "./features/eleves/homework/homework.component";
 import {ScheduleComponent} from "./features/eleves/schedule/schedule.component";
 import {CourseComponent} from "./features/eleves/course/course.component";
-import {ClassComponent} from "./features/eleves/class/class.component";
+import {ClassComponent} from "./features/eleves/class-presence/class.component";
 import {ParentComponent} from "./features/parent/parent/parent.component";
 import {AdminComponent} from "./features/admin/admin/admin.component";
 import {TeacherComponent} from "./features/teacher/teacher/teacher.component";
@@ -22,11 +22,11 @@ export const routes: Routes = [
   {path: "eleve", component: EleveDashComponent, children: [
       {path:  "profil", component: EleveProfilComponent},
       {path: "grades", component: EleveNoteComponent},
-      {path: "dashbord", component: DashbordComponent},
+      {path: "homework", component: HomeworkComponent},
       {path: "schedule", component: ScheduleComponent},
       {path: "courses", component: CourseComponent},
-      {path: "class", component: ClassComponent},
-      {path: "", redirectTo: "dashbord", pathMatch: "full"}
+      {path: "class-presence", component: ClassComponent},
+      {path: "", redirectTo: "profil", pathMatch: "full"}
     ]},
   {path: "parent", component: ParentComponent, children: []},
   {path: "admin", component: AdminComponent, children: []},
